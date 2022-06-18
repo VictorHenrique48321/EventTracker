@@ -1,19 +1,14 @@
 import { atom } from "recoil";
 import { IEvento } from "../interfaces/IEvento";
+import { IFiltro } from "../interfaces/IFiltro";
+import { eventosAsync } from "./seletores/eventosAsync";
 
 export const listaDeEventos = atom<IEvento[]>({
   key: "listaDeEventosState",
-  default: [{
-    "descricao": "Estudar React",
-    "inicio": new Date("2022-06-15T09:00"),
-    "fim": new Date("2022-06-15T13:00"),
-    "completo": false,
-    "id": 1642342747
-  }, {
-    "descricao": "Estudar Recoil",
-    "inicio": new Date("2022-06-16T09:00"),
-    "fim": new Date("2022-06-16T11:00"),
-    "completo": false,
-    "id": 1642342959
-  }]
+  default: eventosAsync
+})
+
+export const filtroDeEventos = atom<IFiltro>({
+  key: "filtroDeEventosState",
+  default: {}
 })
